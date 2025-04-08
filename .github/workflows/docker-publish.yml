@@ -37,7 +37,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
+      - name: Wait for image to be available
+        run: sleep 15
       # ✅ 여기에 Trivy 스캔 추가
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
